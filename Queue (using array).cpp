@@ -1,68 +1,66 @@
-#include<iostream>
-#include<conio.h>
-#include<stdlib.h>
+#include <iostream>
+
 using namespace std;
- 
-class queue
+
+struct node
 {
-              int queue1[5];
-              int rear,front;
-      public:
-              queue()
-                {
-                     rear=-1;
-                     front=-1;
-                }
-              void insert(int x)
-               {
-                   if(rear >  4)
-                    {
-                       cout <<"queue over flow";
-                       front=rear=-1;
-                       return;
-                    }
-                    queue1[++rear]=x;
-                    cout <<"inserted" <<x;
-               }
-              void delet()
-               {
-                   if(front==rear)
-                     {
-                         cout <<"queue under flow";
-                         return;
-                     }
-                     cout <<"deleted" <<queue1[++front];
-                }
-              void display()
-               {
-                   if(rear==front)
-                     {
-                          cout <<" queue empty";
-                          return;
-                     }
-                   for(int i=front+1;i<=rear;i++)
-                   cout <<queue1[i]<<" ";
-               }
+    int data;
+    node *next;
 };
- 
-main()
+
+class linked_list
 {
-      int ch;
-      queue qu;
-      while(1)
+private:
+    node *head,*tail;
+public:
+    linked_list()
+    {
+        head = NULL;
+        tail = NULL;
+    }
+
+    void add_node(int n)
+    {
+        node *tmp = new node;
+        tmp->data = n;
+        tmp->next = NULL;
+
+        if(head == NULL)
         {
-              cout <<"\n1.insert  2.delet  3.display  4.exit\nEnter ur choice";
-              cin >> ch;
-              switch(ch)
-                {
-                  case 1:    cout <<"enter the element";
-                           	 cin >> ch;
-                             qu.insert(ch);
-                             break;
-                  case 2:  qu.delet();  break;
-                  case 3:  qu.display();break;
-                  case 4: exit(0);
-                  }
-          }
-return (0);
+            head = tmp;
+            tail = tmp;
+        }
+        else
+        {
+            tail->next = tmp;
+            tail = tail->next;
+        }
+    }
+
+    node* gethead()
+    {
+        return head;
+    }
+
+    void display(node *head)
+    {
+        if(head == NULL)
+        {
+            cout << "NULL" << endl;
+        }
+        else
+        {
+            cout << head->data << endl;
+            display(head->next);
+        }
+    }
+};
+
+int main()
+{
+    linked_list a;
+    a.add_node(1);
+    a.add_node(2);
+    a.display(a.gethead());
+    return 0;
 }
