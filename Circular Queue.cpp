@@ -2,6 +2,8 @@
 #define SIZE 5   /* Size of Circular Queue */
 
 //brah stop using work as an escape and face your emotions, this is not healthy ;_;
+//no bro that's not how it works snap outta your delusions you aint no billionare 
+//Delight in what u fear
 
 using namespace std;
 
