@@ -1,6 +1,8 @@
 #include <iostream>
 #define SIZE 5   /* Size of Circular Queue */
 
+//brah stop using work as an escape and face your emotions, this is not healthy ;_;
+
 using namespace std;
 
 class CQueue {
